@@ -36,6 +36,9 @@ Only users with `manage_options` capability (Administrators) will see the widget
 
 == Changelog ==
 
+= 1.0.2 =
+* _(bugfix)_ fixed errors on invalid and empty log files
+
 = 1.0.1 =
 * _(bugfix)_ fixed memory leak in last_lines() function
 
