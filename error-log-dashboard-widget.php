@@ -13,6 +13,9 @@ Includes last_lines() function by phant0m, licensed under cc-wiki and GPLv2+
 
 Error_Log_Dashboard_Widget::on_load();
 
+/**
+ * Main plugin's class.
+ */
 class Error_Log_Dashboard_Widget {
 
 	static function on_load() {
@@ -89,6 +92,14 @@ class Error_Log_Dashboard_Widget {
 		?></table><?php
 	}
 
+	/**
+	 * Compare callback for freeform date/time strings.
+	 *
+	 * @param string $a
+	 * @param string $b
+	 *
+	 * @return int
+	 */
 	static function time_field_compare( $a, $b ) {
 
 		if ( $a == $b )
@@ -102,7 +113,7 @@ class Error_Log_Dashboard_Widget {
 	 *
 	 * @link http://stackoverflow.com/questions/6451232/php-reading-large-files-from-end/6451391#6451391
 	 *
-	 * @param string $path
+	 * @param string  $path
 	 * @param integer $line_count
 	 * @param integer $block_size
 	 * 
