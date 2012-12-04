@@ -47,7 +47,9 @@ class Error_Log_Dashboard_Widget {
 		$lines     = array();
 
 		foreach ( $logs as $log ) {
-			$lines = array_merge( $lines, self::last_lines( $log, $count ) );
+
+			if ( is_readable( $log ) )
+				$lines = array_merge( $lines, self::last_lines( $log, $count ) );
 		}
 
 		$lines = array_map( 'trim', $lines );
