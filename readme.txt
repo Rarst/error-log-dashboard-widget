@@ -16,6 +16,8 @@ The widget brings latest entries from error log right to WordPress dashboard:
  - log file is detected automatically from configuration;
  - only end of file is read - no memory overflow issues, safe for large logs.
 
+[Development repository and issue tracker](https://bitbucket.org/Rarst/error-log-dashboard-widget/).
+
 == Frequently Asked Questions ==
 
 = Which log is monitored? =
