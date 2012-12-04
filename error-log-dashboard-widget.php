@@ -140,6 +140,9 @@ class Error_Log_Dashboard_Widget {
 			if ( ftell( $fh ) <= $block_size )
 				$can_read = ftell( $fh );
 
+			if ( empty( $can_read ) )
+				break;
+
 			// go back as many bytes as we can
 			// read them to $data and then move the file pointer
 			// back to where we were.
