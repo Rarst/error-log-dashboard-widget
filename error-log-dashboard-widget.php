@@ -5,8 +5,10 @@ Plugin URI: http://wordpress.org/extend/plugins/error-log-dashboard-widget/
 Description: Robust zero-configuration and low-memory way to keep an eye on error log.
 Author: Andrey "Rarst" Savchenko
 Author URI: http://www.rarst.net/
-Version: 1.0.1
-License Notes: GPLv2 or later, includes last_lines() function by phant0m, licensed under cc-wiki and GPLv2+
+Version: 1.0.2
+License: GPLv2 or later
+
+Includes last_lines() function by phant0m, licensed under cc-wiki and GPLv2+
 */
 
 Error_Log_Dashboard_Widget::on_load();
