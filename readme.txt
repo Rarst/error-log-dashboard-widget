@@ -2,7 +2,7 @@
 Contributors: Rarst
 Tags: dashboard,widget,admin,error,log
 Requires at least: 3.2.1
-Tested up to: 3.4.2
+Tested up to: 3.6
 Stable tag: trunk
 
 Error Log Dashboard Widget is robust zero-configuration and low-memory way to keep an eye on error log.
@@ -37,6 +37,9 @@ Only users with `manage_options` capability (Administrators) will see the widget
 1. Widget in dashboard.
 
 == Changelog ==
+
+= 1.0.3 =
+* _(bugfix)_ fixed strict error notice for WordPress 3.6
 
 = 1.0.2 =
 * _(bugfix)_ fixed errors on invalid and empty log files

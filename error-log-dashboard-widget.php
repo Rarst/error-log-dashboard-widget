@@ -121,7 +121,7 @@ class Error_Log_Dashboard_Widget {
 	 * 
 	 * @return array
 	 */
-	function last_lines( $path, $line_count, $block_size = 512 ) {
+	static function last_lines( $path, $line_count, $block_size = 512 ) {
 		$lines = array();
 
 		// we will always have a fragment of a non-complete line
