@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name: Error Log Dashboard Widget
-Plugin URI: http://wordpress.org/extend/plugins/error-log-dashboard-widget/
-Description: Robust zero-configuration and low-memory way to keep an eye on error log.
+Plugin URI: https://github.com/Rarst/error-log-dashboard-widget
+Description: Robust zero-configuration and low-memory WordPress plugin to keep an eye on error log.
 Author: Andrey "Rarst" Savchenko
 Author URI: http://www.rarst.net/
-Version: 1.0.2
+Version:
 License: GPLv2 or later
 
 Includes last_lines() function by phant0m, licensed under cc-wiki and GPLv2+
