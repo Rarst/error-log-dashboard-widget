@@ -25,6 +25,10 @@ Only users with `manage_options` capability (Administrators) will see the widget
 
 ## Changelog
 
+### 1.0.4
+
+* moved source to GitHub/Packagist
+
 ### 1.0.3
 * _(bugfix)_ fixed strict error notice for WordPress 3.6
 
