@@ -1,9 +1,9 @@
 {
 	"name"        : "rarst/error-log-dashboard-widget",
-	"description" : "Robust zero-configuration and low-memory way to keep an eye on error log",
+	"description" : "Robust zero-configuration and low-memory WordPress plugin to keep an eye on error log",
 	"keywords"    : ["wordpress"],
 	"type"        : "wordpress-plugin",
-	"homepage"    : "https://bitbucket.org/Rarst/error-log-dashboard-widget",
+	"homepage"    : "https://github.com/Rarst/error-log-dashboard-widget",
 	"license"     : "GPL-2.0+",
 	"authors"     : [
 		{
@@ -13,8 +13,7 @@
 		}
 	],
 	"support"     : {
-		"issues": "https://bitbucket.org/Rarst/error-log-dashboard-widget/issues",
-		"source": "https://bitbucket.org/Rarst/error-log-dashboard-widget/src"
+		"issues": "https://github.com/Rarst/error-log-dashboard-widget/issues"
 	},
 	"require"     : {
 		"composer/installers": "~1.0"
