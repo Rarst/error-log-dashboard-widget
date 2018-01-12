@@ -91,7 +91,7 @@ class Error_Log_Dashboard_Widget {
 			$lines[ $key ] = compact( 'time', 'error' );
 		}
 
-		if ( count( $error_log ) > 1 ) {
+		if ( count( $logs ) > 1 ) {
 
 			uasort( $lines, array( __CLASS__, 'time_field_compare' ) );
 			$lines = array_slice( $lines, 0, $count );

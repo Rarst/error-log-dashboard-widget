@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 
+### Fixed
+- combining multiple log files.
+
 ## 1.0.4 - 2014-05-28
 
 ### Changed
