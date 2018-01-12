@@ -22,21 +22,3 @@ Filter `error_log_widget_lines` hook to control how many lines you want to see.
 ### Will everyone see the widget?
 
 Only users with `manage_options` capability (Administrators) will see the widget. You can change this by filtering `error_log_widget_capability` hook.
-
-## Changelog
-
-### 1.0.4
-
-* moved source to GitHub/Packagist
-
-### 1.0.3
-* _(bugfix)_ fixed strict error notice for WordPress 3.6
-
-### 1.0.2
-* _(bugfix)_ fixed errors on invalid and empty log files
-
-### 1.0.1
-* _(bugfix)_ fixed memory leak in last_lines() function
-
-### 1.0
-* Initial release.
