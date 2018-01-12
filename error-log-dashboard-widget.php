@@ -1,4 +1,5 @@
 <?php
+
 /*
 Plugin Name: Error Log Dashboard Widget
 Plugin URI: https://github.com/Rarst/error-log-dashboard-widget
@@ -18,28 +19,42 @@ Error_Log_Dashboard_Widget::on_load();
  */
 class Error_Log_Dashboard_Widget {
 
-	static function on_load() {
+	/**
+	 * Set up logic on load.
+	 */
+	public static function on_load() {
 
 		add_action( 'admin_init', array( __CLASS__, 'admin_init' ) );
 	}
 
-	static function admin_init() {
+	/**
+	 * Set up logic on admin init.
+	 */
+	public static function admin_init() {
 
 		add_action( 'wp_dashboard_setup', array( __CLASS__, 'wp_dashboard_setup' ) );
 	}
 
-	static function wp_dashboard_setup() {
+	/**
+	 * Add dashboard widget.
+	 */
+	public static function wp_dashboard_setup() {
 
-		if ( current_user_can( apply_filters( 'error_log_widget_capability', 'manage_options' ) ) )
+		if ( current_user_can( apply_filters( 'error_log_widget_capability', 'manage_options' ) ) ) {
 			wp_add_dashboard_widget( 'error-log-widget', __( 'Error Log', 'error-log-widget' ), array( __CLASS__, 'widget_callback' ) );
+		}
 	}
 
-	static function widget_callback() {
+	/**
+	 * Read log and render widget output.
+	 */
+	public static function widget_callback() {
 
 		$log_errors = ini_get( 'log_errors' );
 
-		if ( ! $log_errors )
+		if ( ! $log_errors ) {
 			echo '<p>' . __( 'Error logging disabled.', 'error-log-widget' ) . ' <a href="http://codex.wordpress.org/Editing_wp-config.php#Configure_Error_Log">' . __( 'Configure error log', 'error-log-widget' ) . '</a></p>';
+		}
 
 		$error_log = ini_get( 'error_log' );
 		$logs      = apply_filters( 'error_log_widget_logs', array( $error_log ) );
@@ -48,8 +63,9 @@ class Error_Log_Dashboard_Widget {
 
 		foreach ( $logs as $log ) {
 
-			if ( is_readable( $log ) )
+			if ( is_readable( $log ) ) {
 				$lines = array_merge( $lines, self::last_lines( $log, $count ) );
+			}
 		}
 
 		$lines = array_map( 'trim', $lines );
@@ -64,14 +80,15 @@ class Error_Log_Dashboard_Widget {
 
 		foreach ( $lines as $key => $line ) {
 
-			if ( false != strpos( $line, ']' ) )
+			if ( false !== strpos( $line, ']' ) ) {
 				list( $time, $error ) = explode( ']', $line, 2 );
-			else
+			} else {
 				list( $time, $error ) = array( '', $line );
+			}
 
-			$time        = trim( $time, '[]' );
-			$error       = trim( $error );
-			$lines[$key] = compact( 'time', 'error' );
+			$time          = trim( $time, '[]' );
+			$error         = trim( $error );
+			$lines[ $key ] = compact( 'time', 'error' );
 		}
 
 		if ( count( $error_log ) > 1 ) {
@@ -80,32 +97,34 @@ class Error_Log_Dashboard_Widget {
 			$lines = array_slice( $lines, 0, $count );
 		}
 
-		?><table class="widefat"><?php
+		echo '<table class="widefat">';
 
 		foreach ( $lines as $line ) {
 
 			$error = esc_html( $line['error'] );
 			$time  = esc_html( $line['time'] );
 
-			if ( ! empty( $error ) )
+			if ( ! empty( $error ) ) {
 				echo( "<tr><td>{$time}</td><td>{$error}</td></tr>" );
+			}
 		}
 
-		?></table><?php
+		echo '</table>';
 	}
 
 	/**
 	 * Compare callback for freeform date/time strings.
 	 *
-	 * @param string $a
-	 * @param string $b
+	 * @param string $a First value.
+	 * @param string $b Second value.
 	 *
 	 * @return int
 	 */
-	static function time_field_compare( $a, $b ) {
+	public static function time_field_compare( $a, $b ) {
 
-		if ( $a == $b )
+		if ( $a == $b ) {
 			return 0;
+		}
 
 		return ( strtotime( $a['time'] ) > strtotime( $b['time'] ) ) ? - 1 : 1;
 	}
@@ -115,13 +134,13 @@ class Error_Log_Dashboard_Widget {
 	 *
 	 * @link http://stackoverflow.com/questions/6451232/php-reading-large-files-from-end/6451391#6451391
 	 *
-	 * @param string  $path
-	 * @param integer $line_count
-	 * @param integer $block_size
-	 * 
+	 * @param string  $path       Filesystem path to the file.
+	 * @param integer $line_count How many lines to read.
+	 * @param integer $block_size Size of block to use for read.
+	 *
 	 * @return array
 	 */
-	static function last_lines( $path, $line_count, $block_size = 512 ) {
+	public static function last_lines( $path, $line_count, $block_size = 512 ) {
 		$lines = array();
 
 		// we will always have a fragment of a non-complete line
@@ -129,19 +148,21 @@ class Error_Log_Dashboard_Widget {
 		$leftover = '';
 
 		$fh = fopen( $path, 'r' );
-		// go to the end of the file
+		// go to the end of the file.
 		fseek( $fh, 0, SEEK_END );
 
 		do {
 			// need to know whether we can actually go back
-			// $block_size bytes
+			// $block_size bytes.
 			$can_read = $block_size;
 
-			if ( ftell( $fh ) <= $block_size )
+			if ( ftell( $fh ) <= $block_size ) {
 				$can_read = ftell( $fh );
+			}
 
-			if ( empty( $can_read ) )
+			if ( empty( $can_read ) ) {
 				break;
+			}
 
 			// go back as many bytes as we can
 			// read them to $data and then move the file pointer
@@ -158,11 +179,12 @@ class Error_Log_Dashboard_Widget {
 			$split_data = array_reverse( explode( "\n", $data ) );
 			$new_lines  = array_slice( $split_data, 0, - 1 );
 			$lines      = array_merge( $lines, $new_lines );
-			$leftover   = $split_data[count( $split_data ) - 1];
+			$leftover   = $split_data[ count( $split_data ) - 1 ];
 		} while ( count( $lines ) < $line_count && ftell( $fh ) != 0 );
 
-		if ( ftell( $fh ) == 0 )
+		if ( ftell( $fh ) == 0 ) {
 			$lines[] = $leftover;
+		}
 
 		fclose( $fh );
 		// Usually, we will read too many lines, correct that here.
