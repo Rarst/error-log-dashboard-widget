@@ -113,16 +113,16 @@ class Error_Log_Dashboard_Widget {
 	}
 
 	/**
-	 * Compare callback for freeform date/time strings.
+	 * Compare callback for freeform date/time strings in line items.
 	 *
-	 * @param string $a First value.
-	 * @param string $b Second value.
+	 * @param array $a First value.
+	 * @param array $b Second value.
 	 *
 	 * @return int
 	 */
 	public static function time_field_compare( $a, $b ) {
 
-		if ( $a == $b ) {
+		if ( $a['time'] === $b['time'] ) {
 			return 0;
 		}
 
