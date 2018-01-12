@@ -1,14 +1,13 @@
 {
 	"name"        : "rarst/error-log-dashboard-widget",
 	"description" : "Robust zero-configuration and low-memory WordPress plugin to keep an eye on error log",
-	"keywords"    : ["wordpress"],
+	"keywords"    : ["wordpress", "log"],
 	"type"        : "wordpress-plugin",
 	"homepage"    : "https://github.com/Rarst/error-log-dashboard-widget",
 	"license"     : "GPL-2.0+",
 	"authors"     : [
 		{
 			"name"    : "Andrey Savchenko",
-			"email"   : "contact@rarst.net",
 			"homepage": "http://www.Rarst.net/"
 		}
 	],

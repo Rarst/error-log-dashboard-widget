@@ -6,7 +6,7 @@ Plugin URI: https://github.com/Rarst/error-log-dashboard-widget
 Description: Robust zero-configuration and low-memory WordPress plugin to keep an eye on error log.
 Author: Andrey "Rarst" Savchenko
 Author URI: http://www.rarst.net/
-Version:
+Version: 1.0.5
 License: GPLv2 or later
 
 Includes last_lines() function by phant0m, licensed under cc-wiki and GPLv2+
@@ -53,7 +53,7 @@ class Error_Log_Dashboard_Widget {
 		$log_errors = ini_get( 'log_errors' );
 
 		if ( ! $log_errors ) {
-			echo '<p>' . __( 'Error logging disabled.', 'error-log-widget' ) . ' <a href="http://codex.wordpress.org/Editing_wp-config.php#Configure_Error_Log">' . __( 'Configure error log', 'error-log-widget' ) . '</a></p>';
+			echo '<p>' . __( 'Error logging disabled.', 'error-log-widget' ) . ' <a href="https://codex.wordpress.org/Editing_wp-config.php#Configure_Error_Logging">' . __( 'Configure error log', 'error-log-widget' ) . '</a></p>';
 		}
 
 		$error_log = ini_get( 'error_log' );
