@@ -1,13 +1,14 @@
-## Description
+# Error Log Dashboard Widget
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Rarst/error-log-dashboard-widget/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Rarst/error-log-dashboard-widget/?branch=master)
 
-Error Log Dashboard Widget is robust zero-configuration and low-memory WordPress plugin to keep an eye on error log.
+Error Log Dashboard Widget is robust zero–configuration and low–memory WordPress plugin to keep an eye on error log.
 
 Logging errors is recommended best practice, even for production site. Checking those logs however might seem like a chore.
 
 The widget brings latest entries from error log right to WordPress dashboard:
 
  - log file is detected automatically from configuration;
- - only end of file is read - no memory overflow issues, safe for large logs.
+ - only end of file is read — no memory overflow issues, safe for large logs.
 
 ## Frequently Asked Questions
 
